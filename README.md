@@ -1,6 +1,6 @@
 # iVentoy Container
 
-This is a docker container packaging up the iVentoy tool (https://iventoy.com)[https://iventoy.com]
+This is a docker container packaging up the iVentoy tool [https://iventoy.com](https://iventoy.com)
 
 The image is based on Debian 12 Bookworm slim version and uses supervisor to launch the process.
 
