@@ -1,0 +1,17 @@
+---
+version: "3.8"
+services:
+  iVentoy:
+    image: garybowers/iventoy:latest
+    container_name: iVentoy
+    restart: unless-stopped
+    privileged: true
+    hostname: iventoy
+    volumes:
+      - /mnt/disk0/appdata/iventoy/data:/iventoy/data
+      - /mnt/disk0/appdata/iventoy/isos:/iventoy/iso
+    ports:
+      - 26000:26000
+      - 16000:16000
+      - 10809:10809
+    
