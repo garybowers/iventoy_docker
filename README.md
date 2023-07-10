@@ -24,7 +24,7 @@ TODO: Port 10809 is Linux Network Block Device - I'm not quite sure what iVentoy
 
 
 ```
-docker run -d --privileged -p 26000:26000 -p 16000:16000 -p 10809:10809 garybowers/iventoy:1.0.08
+docker run -d --privileged -p 26000:26000 -p 16000:16000 -p 10809:10809 garybowers/iventoy:latest
 ```
 
 ## Volumes
@@ -32,13 +32,13 @@ docker run -d --privileged -p 26000:26000 -p 16000:16000 -p 10809:10809 garybowe
 There are a couple of volumes you can mount, the primary is the `iso` folder, which surprisingly containts your iso images you want to boot.
 
 ```
-docker run -d --privileged -p 26000:26000 -p 16000:16000 -p 10809:10809 -v /path/to/isos:/iventoy/iso garybowers/iventoy:1.0.08
+docker run -d --privileged -p 26000:26000 -p 16000:16000 -p 10809:10809 -v /path/to/isos:/iventoy/iso garybowers/iventoy:latest
 ```
 
 There is also the configuration (THIS BIT I HAVE NOT TESTED YET)!
 saved in /data so we probably want to mount this to make it save configuration across restarts.
 
 ```
-docker run -d --privileged -p 26000:26000 -p 16000:16000 -p 10809:10809 -v /path/to/isos:/iventoy/iso -v /path/to/data:/iventoy/data garybowers/iventoy:1.0.08
+docker run -d --privileged -p 26000:26000 -p 16000:16000 -p 10809:10809 -v /path/to/isos:/iventoy/iso -v /path/to/data:/iventoy/data garybowers/iventoy:latest
 ```
 
