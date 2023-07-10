@@ -2,7 +2,7 @@ FROM debian:bookworm-slim
 MAINTAINER gary@bowers1.com
 
 ENV DEBIANFRONTEND=noninteractive
-ARG IVENTOY_VERSION=1.0.08
+ARG IVENTOY_VERSION=1.0.09
 
 RUN apt update -y && apt install -y --no-install-recommends curl supervisor libglib2.0-dev libevent-dev libwim-dev
 
