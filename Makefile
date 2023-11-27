@@ -1,7 +1,7 @@
 .PHONY: build tag push
 
 build:
-	docker build . -t iventoy:build
+	docker build . -t iventoy:build --no-cache
 
 tag:
 	docker tag iventoy:build garybowers/iventoy:latest
