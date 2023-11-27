@@ -66,4 +66,6 @@ Run iVentoy with the volume for data mounted.
 docker run -d --privileged -p 69:69 -p 26000:26000 -p 16000:16000 -p 10809:10809 -v /path/to/isos:/iventoy/iso garybowers/iventoy:latest --name iventoy-temp
 ```
 
+### Configure iVentoy
 
+![picture of iVentoy configuration 1](docs/assets/scr1.png)
