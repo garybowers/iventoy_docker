@@ -66,6 +66,9 @@ Run iVentoy with the volume for data mounted.
 docker run -d --privileged -p 69:69 -p 26000:26000 -p 16000:16000 -p 10809:10809 -v /path/to/isos:/iventoy/iso garybowers/iventoy:latest --name iventoy-temp
 ```
 
+### Configure your DHCP server
+See the [docs](docs/) folder for examples.
+
 ### Configure iVentoy
 
 Once your container is up and running go to the IP address of your server on port 26000 e.g. http://10.0.0.1:26000
@@ -80,4 +83,9 @@ Once your container is up and running go to the IP address of your server on por
 ![picture of iVentoy configuration 2](docs/assets/scr3.png)
 ![picture of iVentoy configuration 2](docs/assets/scr4.png)
 
+4. Start the server by hitting the bit play button on the `Boot Information` menu screen
+![picture of iVentoy configuration 1](docs/assets/scr1.png)
+![picture of iVentoy configuration 1](docs/assets/scr5.png)
 
+5. Test booting.
+![picture of iVentoy configuration 1](docs/assets/scr6.png)
