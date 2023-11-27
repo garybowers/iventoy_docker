@@ -2,11 +2,11 @@ FROM debian:bookworm-slim
 MAINTAINER gary@bowers1.com
 
 ENV DEBIANFRONTEND=noninteractive
-ARG IVENTOY_VERSION=1.0.09
+ARG IVENTOY_VERSION=1.0.19
 
 RUN apt update -y && apt install -y --no-install-recommends curl supervisor libglib2.0-dev libevent-dev libwim-dev
 
-RUN curl -kL https://github.com/ventoy/PXE/releases/download/v${IVENTOY_VERSION}/iventoy-${IVENTOY_VERSION}-linux.tar.gz -o /tmp/iventoy.tar.gz && \
+RUN curl -kL https://github.com/ventoy/PXE/releases/download/v${IVENTOY_VERSION}/iventoy-${IVENTOY_VERSION}-linux-free.tar.gz -o /tmp/iventoy.tar.gz && \
     tar -xvzf /tmp/iventoy.tar.gz -C / && \
     mv /iventoy-${IVENTOY_VERSION} /iventoy && \
     mkdir -p /var/log/supervisor
