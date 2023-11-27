@@ -68,4 +68,12 @@ docker run -d --privileged -p 69:69 -p 26000:26000 -p 16000:16000 -p 10809:10809
 
 ### Configure iVentoy
 
+Once your container is up and running go to the IP address of your server on port 26000 e.g. http://10.0.0.1:26000
+
+1. Ensure the Server IP is selected correctly, on my docker setup I have a dedicated network with it's own IP for this service.
 ![picture of iVentoy configuration 1](docs/assets/scr1.png)
+
+2. On the configuration menu on the left, If you are using a external DHCP server then ensure the `DHCP Server Mode` is set to `External`
+![picture of iVentoy configuration 2](docs/assets/scr2.png)
+
+
