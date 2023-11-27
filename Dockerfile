@@ -15,5 +15,5 @@ COPY files/supervisord.conf /etc/supervisor/supervisord.conf
 
 VOLUME /iventoy/iso /iventoy/data /iventoy/log /iventoy/user
 
-EXPOSE 26000 16000 10809
+EXPOSE 26000 16000 10809 69/udp
 ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
