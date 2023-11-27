@@ -76,4 +76,8 @@ Once your container is up and running go to the IP address of your server on por
 2. On the configuration menu on the left, If you are using a external DHCP server then ensure the `DHCP Server Mode` is set to `External`
 ![picture of iVentoy configuration 2](docs/assets/scr2.png)
 
+3. Copy a ISO file to your isos folder (locally as set by the volumes above) and goito the `Image Management` menu on the left and hit refresh.
+![picture of iVentoy configuration 2](docs/assets/scr3.png)
+![picture of iVentoy configuration 2](docs/assets/scr4.png)
+
 
