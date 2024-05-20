@@ -6,6 +6,13 @@ The image is based on Debian 12 Bookworm slim version and uses supervisor to lau
 
 Note: The way iVentoy has been developed is really weird, there's no daemon or flags (I can find), so just ignore supervisor warnings for now.
 
+## Versions
+
+Docker Tag:
+* 1.0.20-1 : iVentoy v1.0.20,  Logs symlinked from /iventoy/log/log.txt to syslog
+* 1.0.20   : iVentoy v1.0.20
+* 1.0.19   : iVentoy v1.0.19
+
 ## Usage
 
 It uses sysvfs so the container needs to be ran in privileged mode (not ideal!) and also needs port 69 which is in a privileged range.
