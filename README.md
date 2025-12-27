@@ -1,5 +1,26 @@
 # iVentoy Container
 
+tl;dr - I've started my own opensource container/binary based PXE Boot server with easy drop in ISO's here: 
+
+(https://github.com/garybowers/bootimus)[https://github.com/garybowers/bootimus]
+
+
+Please leave issues / comments / feedback :) it's early days but should work on ARM + AMD64 as it's written in Go.
+
+# **BEWARE** 
+
+using iVentoy,  This project was to just package up iVentoy into a container for easy deployment but there's been several security issues with iVentoy, not to mention it's a Chinese (no Xenophobia here, just pure infosec blackhat)
+
+(https://github.com/ventoy/PXE/issues/106)[https://github.com/ventoy/PXE/issues/106]
+
+
+(https://github.com/ventoy/PXE/issues/118)[https://github.com/ventoy/PXE/issues/118]
+
+
+Use at your own risk - I suggest finding an alternative or checkout my 100% OSS version above written in Golang and trying to implement all the features of iVentoy but without the annoyances.
+
+# Iventoy Container
+
 This is a docker container packaging up the iVentoy tool [https://iventoy.com](https://iventoy.com)
 
 The image is based on Debian 12 Bookworm slim version and uses supervisor to launch the process.
