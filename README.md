@@ -1,23 +1,27 @@
 # iVentoy Container
 
-tl;dr - I've started my own opensource container/binary based PXE Boot server with easy drop in ISO's here: 
+tl;dr – I’ve moved on. I’m now building a proper, open-source PXE server in Go that doesn’t do anything shifty behind your back. Check it out:
 
-[https://github.com/garybowers/bootimus](https://github.com/garybowers/bootimus)
+👉 https://github.com/garybowers/bootimus
 
+It’s cross-platform (ARM/AMD64), transparent, and won't mess with your boot images in a way you can't understand. Feedback is very welcome!
 
-Please leave issues / comments / feedback :) it's early days but should work on ARM + AMD64 as it's written in Go.
+⚠️ A bit of a warning
+This repo started as a way to containerise iVentoy, but I can’t in good conscience recommend it anymore.
 
-# **BEWARE** 
+The biggest issue is what’s happening under the bonnet. iVentoy is closed-source and has been caught silently injecting "black box" drivers and certificates into the boot process without any disclosure. We’re talking about kernel-level drivers and fake root CAs being shoved into your WinPE/Linux runtime at boot.
 
-using iVentoy,  This project was to just package up iVentoy into a container for easy deployment but there's been several security issues with iVentoy, not to mention it's a Chinese (no Xenophobia here, just pure infosec blackhat)
+From an infosec perspective, that’s a massive red flag. You’re essentially letting an opaque binary patch your operating system before it’s even installed.
 
-[https://github.com/ventoy/PXE/issues/106](https://github.com/ventoy/PXE/issues/106)
+Why this is a problem:
+Silent Injections: It patches your images at boot time with files we can’t audit.
 
+Security "Hacks": It uses dodgy techniques (like fake EV certificates) to bypass Windows signature checks (see Issue #106 and #118).
 
-[https://github.com/ventoy/PXE/issues/118](https://github.com/ventoy/PXE/issues/118)
+Zero Transparency: Because it’s a closed binary, we’ve no way of knowing if it’s "phoning home" or what else it might be dropping into your environment.
 
+Use at your own peril. If you want a PXE solution that’s actually trustworthy and 100% OSS, give Bootimus a go instead. No nonsense, no hidden drivers—just a clean boot.
 
-Use at your own risk - I suggest finding an alternative or checkout my 100% OSS version above written in Golang and trying to implement all the features of iVentoy but without the annoyances.
 
 # Iventoy Container
 
