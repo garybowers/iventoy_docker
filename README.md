@@ -19,12 +19,29 @@ The main issue is what’s happening **under the bonnet**. iVentoy is closed-sou
 From an infosec perspective, this is a massive red flag. You are essentially allowing a closed-source binary to patch your operating system at a kernel level before the OS is even installed.
 
 ### Why this is a risk:
-* **Silent Injections:** It patches your images at boot time with files that cannot be audited.
+* **Silent Injections:** iVentoy uses udev rule hijacking and device-mapper "tricks" to force ISOs to boot in ways they weren't designed for. While clever, this method involves patching the initramfs of the OS on-the-fly.
+
+* **Silent Certificate Injection:** iVentoy has been caught programmatically installing fake Root CAs into the Windows Registry at boot. This allows for total interception of encrypted traffic.
+
+* **Mystery Binary Blobs:** Significant portions of the code are distributed as pre-compiled blobs. Without reproducible builds, there is no way to verify they haven't been backdoored.
+
+* **Ancient Tooling:** The project relies on software dependencies from 2008 and EOL operating systems, making it a playground for unpatched vulnerabilities.
+
+* **State Compliance:** As a closed-source tool from China, it is subject to laws (like the 2021 RMSV) that require security flaws to be reported to the state 48 hours before the public is notified.
+
+
 * **Security Bypasses:** It uses questionable techniques (like fake EV certificates) to bypass Windows signature checks. (See: [Issue #106](https://github.com/ventoy/PXE/issues/106) and [Issue #118](https://github.com/ventoy/PXE/issues/118)).
 
 * **Jurisdictional Risk:** Because it is a closed binary operating under jurisdictions with strict National Intelligence Laws (China), there is no way to verify if "state-mandated" backdoors are present. In the world of "Black Hat" infosec, if you can't see the code, you can't trust the boot.
 
 **Use at your own peril.** I’d recommend looking at alternatives (one I'm working on) such as [**Bootimus**](https://github.com/garybowers/bootimus) instead. It’s 100% open-source, written in Go, and aims to provide the same easy drop-in ISO features without the security headaches or the hidden baggage.
+
+
+### Technical References & Sources
+- [Vulnerability Report: Silent Driver/Cert Injection (Issue #106)](https://github.com/ventoy/PXE/issues/106)
+- [Cisco Talos: Analysis of the JemmyLoveJenny Root CA tools used](https://blog.talosintelligence.com/old-certificate-new-signature/)
+- [Security Scrutiny: The Binary Blob Controversy](https://biggo.com/news/202508061917_Ventoy_Binary_Blobs_Security_Concerns)
+- [Legal Context: China's 2021 Vulnerability Reporting Mandates](https://oit.utk.edu/wp-content/uploads/China-National-Security-Laws.pdf)
 
 ---
 
