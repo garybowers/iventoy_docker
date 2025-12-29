@@ -1,12 +1,15 @@
 # iVentoy Container
 
-tl;dr – I’ve moved on. I’m now building a proper, open-source PXE server in Go that doesn’t do anything shifty behind your back. Check it out:
+## tl;dr – I’ve moved on. 
+
+I’m now trying to build a proper, open-source PXE server in Go that doesn’t do anything shifty behind your back. Check it out:
 
 👉 https://github.com/garybowers/bootimus
 
 It’s cross-platform (ARM/AMD64), transparent, and won't mess with your boot images in a way you can't understand. Feedback is very welcome!
 
-⚠️ A bit of a warning
+## ⚠️ A bit of a warning
+
 This repo started as a way to containerise iVentoy, but I can’t in good conscience recommend it anymore.
 
 The biggest issue is what’s happening under the bonnet. iVentoy is closed-source and has been caught silently injecting "black box" drivers and certificates into the boot process without any disclosure. We’re talking about kernel-level drivers and fake root CAs being shoved into your WinPE/Linux runtime at boot.
