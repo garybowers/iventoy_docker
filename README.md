@@ -1,30 +1,32 @@
 # iVentoy Container
 
-## tl;dr – I’ve moved on. 
+**tl;dr** – I’ve moved on from this. I’m now trying to build a proper, open-source PXE server in Go that doesn’t do anything shifty behind your back. Check it out:
 
-I’m now trying to build a proper, open-source PXE server in Go that doesn’t do anything shifty behind your back. Check it out:
+👉 [**https://github.com/garybowers/bootimus**](https://github.com/garybowers/bootimus)
 
-👉 https://github.com/garybowers/bootimus
+It’s cross-platform (ARM/AMD64), transparent, and won't mess (too much) with your boot images (you can still audit the code).
+Cheers for any feedback!
 
-It’s cross-platform (ARM/AMD64), transparent, and won't mess with your boot images in a way you can't understand. Feedback is very welcome!
+---
 
-## ⚠️ A bit of a warning
+## ⚠️ BEWARE: Security Concerns
 
-This repo started as a way to containerise iVentoy, but I can’t in good conscience recommend it anymore.
+This project was originally intended to containerise iVentoy for easier deployment. However, I can no longer recommend using it due to some **properly dodgy security issues** that have come to light.
 
-The biggest issue is what’s happening under the bonnet. iVentoy is closed-source and has been caught silently injecting "black box" drivers and certificates into the boot process without any disclosure. We’re talking about kernel-level drivers and fake root CAs being shoved into your WinPE/Linux runtime at boot.
+### The Problem: "Black Box" Injections
+The main issue is what’s happening **under the bonnet**. iVentoy is closed-source and has been caught **silently injecting opaque drivers and certificates** into the boot process without disclosure. We’re talking about kernel-level drivers and fake root CAs being shoved into your WinPE/Linux runtime at boot time.
 
-From an infosec perspective, that’s a massive red flag. You’re essentially letting an opaque binary patch your operating system before it’s even installed.
+From an infosec perspective, this is a massive red flag. You are essentially allowing a closed-source binary to patch your operating system at a kernel level before the OS is even installed.
 
-Why this is a problem:
-Silent Injections: It patches your images at boot time with files we can’t audit.
+### Why this is a risk:
+* **Silent Injections:** It patches your images at boot time with files that cannot be audited.
+* **Security Bypasses:** It uses questionable techniques (like fake EV certificates) to bypass Windows signature checks. (See: [Issue #106](https://github.com/ventoy/PXE/issues/106) and [Issue #118](https://github.com/ventoy/PXE/issues/118)).
 
-Security "Hacks": It uses dodgy techniques (like fake EV certificates) to bypass Windows signature checks (see Issue #106 and #118).
+* **Jurisdictional Risk:** Because it is a closed binary operating under jurisdictions with strict National Intelligence Laws (China), there is no way to verify if "state-mandated" backdoors are present. In the world of "Black Hat" infosec, if you can't see the code, you can't trust the boot.
 
-Zero Transparency: Because it’s a closed binary, we’ve no way of knowing if it’s "phoning home" or what else it might be dropping into your environment.
+**Use at your own peril.** I’d recommend looking at alternatives (one I'm working on) such as [**Bootimus**](https://github.com/garybowers/bootimus) instead. It’s 100% open-source, written in Go, and aims to provide the same easy drop-in ISO features without the security headaches or the hidden baggage.
 
-Use at your own peril. If you want a PXE solution that’s actually trustworthy and 100% OSS, give Bootimus a go instead. No nonsense, no hidden drivers—just a clean boot.
-
+---
 
 # Iventoy Container
 
